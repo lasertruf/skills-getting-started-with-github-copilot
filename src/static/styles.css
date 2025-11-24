@@ -29,10 +29,10 @@ header h1 {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
-  justify-content: center;
+  justify-items: center;
 }
 
 @media (min-width: 768px) {
@@ -148,4 +148,66 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+.participant-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  max-width: 480px;
+}
+
+.participant-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  flex: 0 0 64px;
+}
+
+.participant-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0; /* allow truncation */
+}
+
+.participant-name {
+  font-weight: 700;
+  color: #1a237e;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.participant-meta {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+/* small screens: keep compact */
+@media (max-width: 420px) {
+  .participant-info {
+    gap: 10px;
+    padding: 10px;
+  }
+  .participant-avatar {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+  }
+  .participant-name {
+    font-size: 0.95rem;
+  }
+  .participant-meta {
+    font-size: 0.85rem;
+  }
 }
